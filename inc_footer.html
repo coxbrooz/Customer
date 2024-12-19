@@ -1,0 +1,51 @@
+function myController($appml) {
+    if ($appml.message == "display") {
+        if ($appml.display.name == "CustomerName") {
+            $appml.display.value = $appml.display.value.toUpperCase();
+        }
+    }
+}
+
+{
+    "security": "admin",
+    "rowsperpage" : 10,
+    
+    "database": {
+        "connection": "mysql",
+        "sql"       : "SELECT * FROM Customers",
+        "orderby"   : "CustomerName"}},
+    
+    "filteritems" : [
+        {"item" : "CustomerName", "label" : "Customer"},
+        {"item" : "City"},
+        {"item" : "Country"}],
+    
+    "sortitems" : [
+        {"item" : "CustomerName", "label" : "Customer"},
+        {"item" : "City"},
+        {"item" : "Country"}]
+    }
+
+    {
+        "security": "admin",
+        "database": {
+            "connection": "mysql",
+            "sql"       : "SELECT * FROM Customers",
+            "orderby"   : "CustomerName"}
+        }
+
+
+        "restrictions" : {
+            "fname" : {"maxlength": 40},
+            "price" : {"max": 999,"min": 100}
+            }
+
+
+            function myController($appml) {
+                if ($appml.message == "submit") {
+                    var price = document.getElementById("price").value;
+                    if (price < $appml.model.restrictions.price.min) {
+                        $appml.displayError(15, "Price too low!");
+                        return;
+                    }
+            }

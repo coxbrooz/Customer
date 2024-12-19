@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<script src="https://www.w3schools.com/appml/2.0.3/appml.js"></script>
+<title>Customers</title>
+</head>
+<body>
+
+<div class="w3-container" appml-data="appml.php?model=model_cd_from_xml">
+<h1>CD Collection</h1>
+<h3>Extracted from an XML file</h3>
+
+<div appml-include-html="inc_listcommands_nofilter.htm"></div>
+<table class="w3-table-all">
+  <tr>
+    <th>Title</th>
+    <th>Artist</th>
+    <th>Country</th>
+  </tr>
+  <tr appml-repeat="records">
+    <td>{{Title}}</td>
+    <td>{{Artist}}</td>
+    <td>{{Country}}</td>
+  </tr>
+</table>
+</div>
+
+<div id="Form01" class="w3-container w3-light-grey w3-padding-large w3-margin-bottom" appml-data="local?model=model_customersform">
+
+    <p>
+    <label for="customername">Customer:</label>
+    <input id="customername" class="w3-input w3-border">
+    </p>
+    
+    <p>
+    <label for="address">Address:</label>
+    <input id="address" class="w3-input w3-border">
+    </p>
+    
+    <p>
+    <label for="city">City:</label>
+    <input id="city" class="w3-input w3-border">
+    </p>
+    
+    <p>
+    <label for="postalcode">Postal Code:</label>
+    <input id="postalcode" class="w3-input w3-border">
+    </p>
+    
+    <p>
+    <label for="country">Country:</label>
+    <input id="country" class="w3-input w3-border">
+    </p>
+    
+    </div>
+
+    <div appml-include-html="inc_footer.html"></div>
+
+
+    
+
+</body>
+</html>
